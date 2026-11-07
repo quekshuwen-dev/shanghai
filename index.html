@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#25465b">
+<title>Shanghai Family Trip | 8–17 December 2026</title>
+
+<style>
+:root {
+  --navy: #25465b;
+  --blue: #426f87;
+  --ink: #263746;
+  --muted: #687987;
+  --bg: #f2f5f7;
+  --line: #dce4e9;
+  --soft: #eaf1f4;
+  --white: #ffffff;
+  --gold: #9b6a28;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+}
+
+header {
+  background: linear-gradient(135deg, #203b50, #47758c);
+  color: white;
+  padding: 32px 18px;
+}
+
+.wrap {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+h1 {
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.12;
+  margin: 0 0 8px;
+}
+
+header p {
+  margin: 0;
+  color: #e4edf2;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.pill {
+  border: 1px solid #ffffff66;
+  border-radius: 30px;
+  padding: 5px 11px;
+  font-size: 13px;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: white;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 9px max(12px, calc((100vw - 1000px) / 2));
+}
+
+nav a {
+  display: inline-block;
+  padding: 7px 9px;
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 7px;
+}
+
+nav a:hover { background: var(--soft); }
+
+main { padding: 22px 0 55px; }
+
+.panel, .day {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 18px;
+  margin: 0 0 17px;
+  box-shadow: 0 3px 12px #233d4c09;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 0 0 13px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 20px 0 8px;
+}
+
+.muted, .small { color: var(--muted); }
+.small { font-size: 13px; }
+
+.hotelgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.hotel {
+  background: var(--soft);
+  padding: 13px;
+  border-radius: 11px;
+}
+
+.notice {
+  background: #fff8e9;
+  border-left: 4px solid var(--gold);
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin: 13px 0;
+}
+
+.dayhead {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.date {
+  background: var(--navy);
+  color: white;
+  min-width: 59px;
+  text-align: center;
+  padding: 8px 6px;
+  border-radius: 10px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.date span {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--soft);
+  color: var(--navy);
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin: 2px 4px 0 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  border-top: 1px solid var(--line);
+  padding: 9px 8px;
+  vertical-align: top;
+}
+
+td:first-child {
+  width: 125px;
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.driver {
+  background: #f1f5f7;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+button {
+  border: 0;
+  background: var(--navy);
+  color: white;
+  border-radius: 8px;
+  padding: 8px 11px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+button:hover { background: var(--blue); }
+
+a { color: #245d7b; }
+
+.checklist label {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: flex-start;
+}
+
+.checklist input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--navy);
+}
+
+.checklist input:checked + span {
+  text-decoration: line-through;
+  color: #8996a1;
+}
+
+.progress {
+  height: 8px;
+  background: #e6ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress div {
+  height: 100%;
+  width: 0;
+  background: #4b8a75;
+}
+
+.progressline {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 9px 0;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 20px;
+}
+
+@media(max-width:600px) {
+  .wrap { padding: 0 11px; }
+  .panel, .day { padding: 14px; }
+  td { font-size: 14px; padding: 8px 5px; }
+  td:first-child { width: 100px; font-size: 13px; }
+  .dayhead h2 { font-size: 19px; }
+}
+
+@media print {
+  nav, button { display: none !important; }
+  body { background: white; }
+  .panel, .day {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  header {
+    background: #25465b !important;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Shanghai Family Trip</h1>
+    <p>8–17 December 2026 · Family of six · Detailed travel planner</p>
+
+    <div class="pills">
+      <span class="pill">3 adults + 3 children</span>
+      <span class="pill">Toy Story Hotel + Radisson Blu</span>
+      <span class="pill">Vegetarian family</span>
+      <span class="pill">Didi / MPV preferred</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="#overview">Overview</a>
+  <a href="#d8">8 Dec</a>
+  <a href="#d9">9 Dec</a>
+  <a href="#d10">10 Dec</a>
+  <a href="#d11">11 Dec</a>
+  <a href="#d12">12 Dec</a>
+  <a href="#d13">13 Dec</a>
+  <a href="#d14">14 Dec</a>
+  <a href="#d15">15 Dec</a>
+  <a href="#d16">16 Dec</a>
+  <a href="#d17">17 Dec</a>
+  <a href="#tickets">Tickets</a>
+  <a href="#todo">Checklist</a>
+</nav>
+
+<main class="wrap">
+
+<!-- OVERVIEW -->
+
+<section id="overview" class="panel">
+  <h2>Trip overview</h2>
+
+  <div class="hotelgrid">
+    <div class="hotel">
+      <b>8–11 December · 3 nights</b><br>
+      Toy Story Hotel<br>
+      <span class="small">Shanghai Disneyland</span>
+    </div>
+
+    <div class="hotel">
+      <b>11–17 December · 6 nights</b><br>
+      Radisson Blu Hotel Shanghai New World<br>
+      <span class="small">People’s Square area</span>
+    </div>
+  </div>
+
+  <div class="notice">
+    <b>Strict vegetarian requirement:</b>
+    Eggs and dairy are okay. No meat, fish, seafood, meat/fish broth,
+    oyster sauce or lard. Ask about soup bases, sauces and cooking oil.
+    Do not assume a vegetable or tofu dish is vegetarian.
+  </div>
+
+  <p>
+    <b>Transport:</b> For six passengers and luggage, arrange a 7–9-seat
+    MPV for airport transfers. Use Didi MPV for shorter city journeys.
+    For Suzhou and Wuxi, take high-speed trains and arrange a local MPV
+    to meet you at the station.
+  </p>
+
+  <p>
+    <b>Flight details:</b> Latest outbound timing provided: arrival in
+    Shanghai at 2:25pm on 8 December. Return flight: 8:20am on
+    17 December. Check your airline confirmation for flight numbers,
+    terminal and Singapore arrival time.
+  </p>
+
+  <p>
+    <b>Planning note:</b> Timings below are suggested windows, not
+    confirmed train departures, attraction opening times or cruise
+    sailings. Confirm closer to travel.
+  </p>
+</section>
+
+<!-- 8 DEC -->
+
+<section id="d8" class="day">
+  <div class="dayhead">
+    <div class="date">8<span>DEC</span></div>
+    <div>
+      <h2>Tuesday · Arrive in Shanghai</h2>
+      <span class="tag">Toy Story Hotel</span>
+      <span class="tag">Easy day</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>2:25–3:45pm</td><td>Arrive in Shanghai, immigration and baggage collection. Allow extra time for queues.</td></tr>
+    <tr><td>3:45–4:45pm</td><td>Pre-booked MPV from Pudong Airport to Toy Story Hotel. Allow extra time for traffic.</td></tr>
+    <tr><td>4:45–5:30pm</td><td>Check in, settle down and rest.</td></tr>
+    <tr><td>5:30–6:30pm</td><td>Early dinner. Use hotel food only if suitable vegetarian ingredients can be confirmed. Keep snacks as backup.</td></tr>
+    <tr><td>6:30–7:30pm</td><td>Optional short visit to Disneytown if everyone has energy.</td></tr>
+    <tr><td>7:30–8:30pm</td><td>Return to hotel, shower and prepare for the park.</td></tr>
+    <tr><td>8:30pm</td><td>Sleep early.</td></tr>
+  </table>
+
+  <div class="driver">
+    <b>Transport reminder</b><br>
+    Ask the hotel or a reputable transfer provider to arrange a vehicle
+    for six passengers plus all luggage. A standard 5-seat Didi is
+    not suitable.
+  </div>
+</section>
+
+<!-- 9 DEC -->
+
+<section id="d9" class="day">
+  <div class="dayhead">
+    <div class="date">9<span>DEC</span></div>
+    <div>
+      <h2>Wednesday · Shanghai Disneyland, Day 1</h2>
+      <span class="tag">Family-friendly attractions</span>
+      <span class="tag">Toy Story Hotel</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>6:30–7:15am</td><td>Breakfast at Toy Story Hotel.</td></tr>
+    <tr><td>7:15–8:30am</td><td>Get ready, go to the park entrance, security and entry according to official opening time and hotel guest entry arrangements.</td></tr>
+    <tr><td>8:30–10:30am</td><td>Prioritise Seven Dwarfs Mine Train, Peter Pan and Winnie the Pooh, depending on queues and operating status.</td></tr>
+    <tr><td>10:30–11:15am</td><td>Dumbo or Fantasia Carousel.</td></tr>
+    <tr><td>11:15am–12pm</td><td>Voyage to the Crystal Grotto or a relaxed castle-area visit.</td></tr>
+    <tr><td>12–1pm</td><td>Lunch and a sit-down break. Ask staff to confirm all ingredients, sauces and soup bases.</td></tr>
+    <tr><td>1–2:30pm</td><td>Choose another two or three suitable attractions.</td></tr>
+    <tr><td>2:30–3pm</td><td>Snack and toilet break.</td></tr>
+    <tr><td>3–5pm</td><td>Explore, take photos, repeat favourites or watch a show if the children want.</td></tr>
+    <tr><td>5–6pm</td><td>Dinner.</td></tr>
+    <tr><td>6–8pm</td><td>Enjoy the evening atmosphere, suitable rides and fireworks if scheduled.</td></tr>
+    <tr><td>8–9pm</td><td>Return to Toy Story Hotel. Adjust to actual park closing time.</td></tr>
+  </table>
+
+  <div class="notice">
+    <b>For your 97cm youngest child:</b>
+    Seven Dwarfs Mine Train has a 97cm minimum height, but it has
+    coaster movement and drops. Measure at the park. Being tall enough
+    does not mean the child will enjoy it; do not pressure them.
+  </div>
+</section>
+
+<!-- 10 DEC -->
+
+<section id="d10" class="day">
+  <div class="dayhead">
+    <div class="date">10<span>DEC</span></div>
+    <div>
+      <h2>Thursday · Shanghai Disneyland, Day 2</h2>
+      <span class="tag">Pirates</span>
+      <span class="tag">Zootopia</span>
+      <span class="tag">Toy Story Hotel</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>6:30–7:15am</td><td>Breakfast.</td></tr>
+    <tr><td>7:15–8am</td><td>Get ready and head to the park.</td></tr>
+    <tr><td>8–10am</td><td>Pirates of the Caribbean and Zootopia Hot Pursuit, subject to opening and queues.</td></tr>
+    <tr><td>10–11am</td><td>Buzz Lightyear Planet Rescue.</td></tr>
+    <tr><td>11am–12pm</td><td>Toy Story Land: Slinky Dog Spin and other suitable attractions.</td></tr>
+    <tr><td>12–1pm</td><td>Lunch and rest.</td></tr>
+    <tr><td>1–2:30pm</td><td>Choose attractions missed on Day 1.</td></tr>
+    <tr><td>2:30–3pm</td><td>Snack break.</td></tr>
+    <tr><td>3–5pm</td><td>Repeat favourites, character photos or shows.</td></tr>
+    <tr><td>5–6pm</td><td>Dinner.</td></tr>
+    <tr><td>6–8pm</td><td>Evening atmosphere and fireworks if operating.</td></tr>
+    <tr><td>8–9pm</td><td>Return to hotel and pack.</td></tr>
+  </table>
+
+  <div class="notice">
+    <b>Height reminder:</b>
+    Rex’s Racer has a 120cm minimum, so the 97cm child cannot ride.
+    TRON and Soaring also have higher height requirements. Recheck
+    official ride restrictions before visiting.
+  </div>
+</section>
+
+<!-- 11 DEC -->
+
+<section id="d11" class="day">
+  <div class="dayhead">
+    <div class="date">11<span>DEC</span></div>
+    <div>
+      <h2>Friday · Transfer to city hotel</h2>
+      <span class="tag">Radisson Blu New World</span>
+      <span class="tag">People’s Square</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>7:30–8:30am</td><td>Breakfast at Toy Story Hotel.</td></tr>
+    <tr><td>8:30–9:30am</td><td>Pack and check out.</td></tr>
+    <tr><td>9:30–10:30am</td><td>MPV transfer to Radisson Blu.</td></tr>
+    <tr><td>10:30–11am</td><td>Leave luggage with concierge; room may not be ready.</td></tr>
+    <tr><td>11am–12:30pm</td><td>Vegetarian lunch at Gongdelin (功德林). Confirm broth, sauces, cooking oil and lard.</td></tr>
+    <tr><td>12:30–1:30pm</td><td>Short walk around People’s Square / Nanjing Road area.</td></tr>
+    <tr><td>1:30–2:30pm</td><td>Return to hotel and check whether room is ready.</td></tr>
+    <tr><td>2:30–5pm</td><td>Rest and unpack.</td></tr>
+    <tr><td>5–6pm</td><td>Optional short visit to New World City.</td></tr>
+    <tr><td>6–7:30pm</td><td>Dinner near hotel.</td></tr>
+  </table>
+</section>
+
+<!-- 12 DEC -->
+
+<section id="d12" class="day">
+  <div class="dayhead">
+    <div class="date">12<span>DEC</span></div>
+    <div>
+      <h2>Saturday · Jing’an Temple + Longemont Mall</h2>
+      <span class="tag">Pokémon Card Gym</span>
+      <span class="tag">Su Man Xiang</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>8–9am</td><td>Breakfast at Radisson.</td></tr>
+    <tr><td>9–9:30am</td><td>Didi MPV to Jing’an Temple.</td></tr>
+    <tr><td>9:30–10:45am</td><td>Visit Jing’an Temple.</td></tr>
+    <tr><td>10:45–11:15am</td><td>Short visit to Jing’an Park; sit and rest.</td></tr>
+    <tr><td>11:15–11:45am</td><td>Didi to Longemont Mall.</td></tr>
+    <tr><td>11:45am–12:45pm</td><td>Lunch at Su Man Xiang (素满香), Longemont B1. Confirm the branch is operating and food ingredients.</td></tr>
+    <tr><td>12:45–1:45pm</td><td>Pokémon official Trading Card Game Card Gym, Level 3.</td></tr>
+    <tr><td>1:45–2:30pm</td><td>Relaxed mall browse or drink break. Avoid walking through every floor.</td></tr>
+    <tr><td>2:30–3pm</td><td>Didi back to Radisson.</td></tr>
+    <tr><td>3–5:30pm</td><td>Hotel rest.</td></tr>
+    <tr><td>5:30–7pm</td><td>Dinner near hotel.</td></tr>
+  </table>
+
+  <div class="notice">
+    <b>Pokémon expectation:</b>
+    Longemont has an official Pokémon Trading Card Game Card Gym,
+    not a full Pokémon Center flagship store. Expect a card-related
+    venue rather than a huge general merchandise shop.
+  </div>
+
+  <div class="driver">
+    <b>Longemont Mall address</b><br>
+    上海市长宁区长宁路1018号<br>
+    <button onclick="copyText('上海市长宁区长宁路1018号')">Copy Chinese address</button>
+  </div>
+
+  <div class="driver">
+    <b>Vegetarian phrase to show staff</b><br>
+    我们是严格素食者，可以吃鸡蛋和奶，但不能吃任何肉类、鱼、海鲜、肉汤、鱼汤、蚝油或猪油。请问菜品和汤底都是纯植物性的吗？<br>
+    <button onclick="copyText('我们是严格素食者，可以吃鸡蛋和奶，但不能吃任何肉类、鱼、海鲜、肉汤、鱼汤、蚝油或猪油。请问菜品和汤底都是纯植物性的吗？')">Copy vegetarian requirement</button>
+  </div>
+</section>
+
+<!-- 13 DEC -->
+
+<section id="d13" class="day">
+  <div class="dayhead">
+    <div class="date">13<span>DEC</span></div>
+    <div>
+      <h2>Sunday · Suzhou half-day</h2>
+      <span class="tag">Xiyuan Temple</span>
+      <span class="tag">Shantang Street canal boat</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>6:45–7:15am</td><td>Breakfast at Radisson.</td></tr>
+    <tr><td>7:15–7:45am</td><td>Didi MPV to Shanghai Railway Station.</td></tr>
+    <tr><td>7:45–8:30am</td><td>Station check-in and waiting.</td></tr>
+    <tr><td>Target 8:30–9:15am</td><td>G-train to Suzhou Railway Station (苏州站). Select the actual train after tickets are released.</td></tr>
+    <tr><td>9:15–9:45am</td><td>Arrive and meet pre-arranged local MPV.</td></tr>
+    <tr><td>9:45–10:15am</td><td>Drive to Xiyuan Temple.</td></tr>
+    <tr><td>10:15–11:30am</td><td>Xiyuan Temple: cats, koi pond, temple grounds and benches.</td></tr>
+    <tr><td>11:30am–12:15pm</td><td>Vegetarian noodle lunch near the temple only if the canteen can confirm no animal broth or lard. Keep a backup meal.</td></tr>
+    <tr><td>12:15–12:45pm</td><td>MPV to Shantang Street.</td></tr>
+    <tr><td>12:45–1:45pm</td><td>Canal boat ride and short stroll.</td></tr>
+    <tr><td>1:45–2:15pm</td><td>MPV to Suzhou Railway Station.</td></tr>
+    <tr><td>2:15–3pm</td><td>Station buffer.</td></tr>
+    <tr><td>Target around 3pm</td><td>Train back to Shanghai. Choose a service that leaves enough time for the transfer.</td></tr>
+    <tr><td>3:30–4:30pm</td><td>Arrive Shanghai and Didi back to Radisson.</td></tr>
+    <tr><td>4:30–6pm</td><td>Rest, then dinner.</td></tr>
+  </table>
+
+  <div class="driver">
+    <b>Xiyuan Temple address</b><br>
+    苏州市姑苏区西园弄18号<br>
+    <button onclick="copyText('苏州市姑苏区西园弄18号')">Copy temple address</button>
+  </div>
+
+  <div class="driver">
+    <b>Shantang Street boat dock</b><br>
+    苏州市姑苏区山塘街173号 初心码头<br>
+    <button onclick="copyText('苏州市姑苏区山塘街173号 初心码头')">Copy boat dock address</button>
+  </div>
+
+  <div class="notice">
+    <b>Boat ticket plan:</b>
+    Buy at the official Chuxin Dock ticket counter on arrival. Published
+    options have included a ¥50 sightseeing boat towards Tiger Hill
+    (about 30 minutes) and an ¥80 Shangtang River return ride
+    (about 1 hour). Confirm the route, return arrangement and December
+    operating hours at the counter. Fares and schedules can change.
+  </div>
+</section>
+
+<!-- 14 DEC -->
+
+<section id="d14" class="day">
+  <div class="dayhead">
+    <div class="date">14<span>DEC</span></div>
+    <div>
+      <h2>Monday · Yu Garden Bazaar + Bund night cruise</h2>
+      <span class="tag">Bazaar only</span>
+      <span class="tag">Evening cruise</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>8–9am</td><td>Breakfast.</td></tr>
+    <tr><td>9–9:30am</td><td>Didi MPV to Yu Garden Bazaar.</td></tr>
+    <tr><td>9:30–11:30am</td><td>Explore Yuyuan Bazaar, traditional buildings, lanterns and souvenir shops. No paid Yu Garden entry planned.</td></tr>
+    <tr><td>11:30am–12:45pm</td><td>Vegetarian lunch at Chunfeng Songyuelou (春风松月楼). Confirm broth, sauces, cooking oil and lard.</td></tr>
+    <tr><td>12:45–1:30pm</td><td>Short walk and photos.</td></tr>
+    <tr><td>1:30–2pm</td><td>Didi back to Radisson.</td></tr>
+    <tr><td>2–4:30pm</td><td>Hotel rest.</td></tr>
+    <tr><td>4:30pm onwards</td><td>Didi to the Bund / exact cruise pier. Allow for traffic and follow the pier on your ticket.</td></tr>
+    <tr><td>At least 30 min before sailing</td><td>Arrive at the pier printed on your ticket.</td></tr>
+    <tr><td>Evening</td><td>Huangpu River night cruise. Choose a standard sightseeing cruise with indoor seating, not a dinner cruise.</td></tr>
+    <tr><td>After cruise</td><td>Didi back to Radisson.</td></tr>
+  </table>
+
+  <div class="driver">
+    <b>Yu Garden Bazaar address</b><br>
+    上海市黄浦区豫园<br>
+    <button onclick="copyText('上海市黄浦区豫园')">Copy address</button>
+  </div>
+
+  <div class="notice">
+    <b>Bund cruise:</b>
+    Book through the official Huangpu River Cruise (浦江游览) channel
+    or a reputable English booking platform. Confirm exact pier
+    (Shiliupu Pier 1 or 2), sailing time, indoor seating, ticket
+    concessions and passport requirements before paying. A published
+    off-peak fare has been ¥120 per person, but verify the actual
+    December fare.
+  </div>
+</section>
+
+<!-- 15 DEC -->
+
+<section id="d15" class="day">
+  <div class="dayhead">
+    <div class="date">15<span>DEC</span></div>
+    <div>
+      <h2>Tuesday · Wuxi: Grand Buddha + Brahma Palace</h2>
+      <span class="tag">Full-day trip</span>
+      <span class="tag">Pre-arranged MPV</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>6:15–6:45am</td><td>Breakfast or take-away breakfast.</td></tr>
+    <tr><td>6:45–7:15am</td><td>Didi MPV to Shanghai Railway Station.</td></tr>
+    <tr><td>7:15–7:45am</td><td>Station check-in.</td></tr>
+    <tr><td>Target 7:45–8:15am</td><td>Train to Wuxi Railway Station (无锡站).</td></tr>
+    <tr><td>8:45–9:15am</td><td>Arrive Wuxi and meet pre-arranged 7–9-seat MPV.</td></tr>
+    <tr><td>9:15–10:15am</td><td>Drive to Lingshan.</td></tr>
+    <tr><td>10:15–10:45am</td><td>Entry, toilets, tickets and internal shuttle.</td></tr>
+    <tr><td>10:45am–12:15pm</td><td>Grand Buddha viewing area and photos. Mother can stay at the lower plaza if stairs are too much.</td></tr>
+    <tr><td>12:15–1:15pm</td><td>Vegetarian lunch and rest. Verify broth, sauces and ingredients.</td></tr>
+    <tr><td>1:15–1:45pm</td><td>Move to Brahma Palace.</td></tr>
+    <tr><td>1:45–3:30pm</td><td>Explore Brahma Palace.</td></tr>
+    <tr><td>3:30–4pm</td><td>Toilet and snack break.</td></tr>
+    <tr><td>4–5pm</td><td>MPV back to Wuxi Railway Station.</td></tr>
+    <tr><td>Target 5:30–6:30pm</td><td>Train back to Shanghai.</td></tr>
+    <tr><td>6:30–7:30pm</td><td>Arrive Shanghai; Didi back to Radisson.</td></tr>
+    <tr><td>7:30pm onwards</td><td>Dinner and rest.</td></tr>
+  </table>
+
+  <div class="notice">
+    <b>Keep the priorities:</b>
+    Grand Buddha and Brahma Palace. Nine Dragons Bathing Buddha
+    performance is optional and depends on the actual show schedule.
+    Do not rush the family to catch it. Check ticket concessions for
+    foreign passport holders before purchasing.
+  </div>
+
+  <div class="driver">
+    <b>Wuxi driver instruction</b><br>
+    请到无锡站接我们，开车去灵山胜境。我们有六个人，需要一辆大车。司机需要等我们游览结束后，再送我们回无锡站。
+    <br>
+    <button onclick="copyText('请到无锡站接我们，开车去灵山胜境。我们有六个人，需要一辆大车。司机需要等我们游览结束后，再送我们回无锡站。')">Copy driver instruction</button>
+  </div>
+</section>
+
+<!-- 16 DEC -->
+
+<section id="d16" class="day">
+  <div class="dayhead">
+    <div class="date">16<span>DEC</span></div>
+    <div>
+      <h2>Wednesday · Easy day + optional ice skating</h2>
+      <span class="tag">Recovery day</span>
+      <span class="tag">Packing</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>8:30–9:30am</td><td>Breakfast at Radisson.</td></tr>
+    <tr><td>9:30–10:30am</td><td>Relax at hotel.</td></tr>
+    <tr><td>10:30am–12pm</td><td>Optional Snow1 ice skating at New World City, only if everyone has energy and the session is operating.</td></tr>
+    <tr><td>12–1pm</td><td>Vegetarian lunch near People’s Square.</td></tr>
+    <tr><td>1–3pm</td><td>Return to hotel and rest.</td></tr>
+    <tr><td>3–5pm</td><td>Pack, organise luggage and relax.</td></tr>
+    <tr><td>5–6:30pm</td><td>Final dinner.</td></tr>
+    <tr><td>6:30–8pm</td><td>Prepare passports, flight documents and luggage.</td></tr>
+    <tr><td>8:30pm</td><td>Sleep early.</td></tr>
+  </table>
+</section>
+
+<!-- 17 DEC -->
+
+<section id="d17" class="day">
+  <div class="dayhead">
+    <div class="date">17<span>DEC</span></div>
+    <div>
+      <h2>Thursday · Fly home to Singapore</h2>
+      <span class="tag">Early departure</span>
+    </div>
+  </div>
+
+  <table>
+    <tr><td>4:30–4:45am</td><td>Wake up and final check.</td></tr>
+    <tr><td>4:45–5am</td><td>Check out and load luggage into pre-booked MPV.</td></tr>
+    <tr><td>5–6am</td><td>Drive to Pudong Airport. Confirm terminal and allow for traffic.</td></tr>
+    <tr><td>6–6:30am</td><td>Check-in and baggage drop.</td></tr>
+    <tr><td>6:30–7:30am</td><td>Immigration, security and breakfast/snacks.</td></tr>
+    <tr><td>8:20am</td><td>Flight to Singapore. Reconfirm flight number and arrival time.</td></tr>
+  </table>
+</section>
+
+<!-- TICKETS -->
+
+<section id="tickets" class="panel">
+  <h2>Ticket and booking guide</h2>
+
+  <h3>1. Shantang Street canal boat · 13 December</h3>
+  <p>
+    <b>Where:</b> Official Chuxin Dock ticket counter (初心码头),
+    No. 173 Shantang Street. Buy on arrival rather than prepaying
+    an unfamiliar seller.
+  </p>
+  <ul>
+    <li>Published option: ¥50 sightseeing boat towards Tiger Hill, around 30 minutes.</li>
+    <li>Published option: ¥80 Shangtang River return ride, around 1 hour.</li>
+    <li>Ask which route is operating, whether the ticket is one-way or return, and the last departure.</li>
+  </ul>
+  <p>
+    <b>Driver address:</b> 苏州市姑苏区山塘街173号 初心码头<br>
+    <button onclick="copyText('苏州市姑苏区山塘街173号 初心码头')">Copy boat dock address</button>
+  </p>
+
+  <h3>2. Bund Huangpu River night cruise · 14 December</h3>
+  <ul>
+    <li>Preferred channel: official Huangpu River Cruise (浦江游览) website or official WeChat/Alipay mini-program.</li>
+    <li>English booking alternatives:
+      <a href="https://www.trip.com/" target="_blank" rel="noopener">Trip.com</a>,
+      <a href="https://www.klook.com/" target="_blank" rel="noopener">Klook</a> or
+      <a href="https://www.traveloka.com/" target="_blank" rel="noopener">Traveloka</a>.
+    </li>
+    <li>Confirm exact pier, sailing time, indoor seating, child height rules, senior concessions and passport conditions before paying.</li>
+    <li>Arrive at least 30 minutes before sailing.</li>
+    <li>A published off-peak fare has been ¥120 per person, but treat this as indicative only and verify the actual fare.</li>
+  </ul>
+
+  <h3>3. High-speed trains · Suzhou and Wuxi</h3>
+  <ul>
+    <li>Official booking: <a href="https://www.12306.cn/en/" target="_blank" rel="noopener">China Railway 12306 English website</a>.</li>
+    <li>Tickets are generally released 15 days ahead; check the actual release calendar.</li>
+    <li>Suzhou: choose Suzhou Railway Station (苏州站), not Suzhou North.</li>
+    <li>Wuxi: choose Wuxi Railway Station (无锡站) for the planned driver pickup.</li>
+    <li>Choose services with a generous buffer. Do not book a train that leaves immediately after the planned sightseeing finish.</li>
+  </ul>
+
+  <h3>4. Disneyland and Lingshan</h3>
+  <ul>
+    <li>Check official Disneyland opening hours, ride height restrictions, showtimes and hotel guest entry arrangements closer to the date.</li>
+    <li>For Lingshan, confirm admission, internal shuttle, show schedule and foreign-passport child/senior concession rules before purchasing.</li>
+  </ul>
+</section>
+
+<!-- CHECKLIST -->
+
+<section id="todo" class="panel checklist">
+  <h2>Booking and preparation checklist</h2>
+  <p class="small">
+    Tick items as you complete them. Checkmarks are saved in this
+    browser on this device.
+  </p>
+
+  <div class="progressline">
+    <span class="small" id="progresslabel">0 of 13 completed</span>
+    <span class="small">Progress</span>
+  </div>
+
+  <div class="progress">
+    <div id="progressbar"></div>
+  </div>
+
+  <label><input type="checkbox"><span>Confirm outbound and return flight details, terminals and arrival time.</span></label>
+  <label><input type="checkbox"><span>Book airport MPVs for six passengers plus luggage.</span></label>
+  <label><input type="checkbox"><span>Confirm Toy Story Hotel and Radisson reservations.</span></label>
+  <label><input type="checkbox"><span>Check Disneyland opening hours, ride restrictions and show schedule.</span></label>
+  <label><input type="checkbox"><span>Arrange Suzhou local MPV and driver pickup.</span></label>
+  <label><input type="checkbox"><span>Book Shanghai–Suzhou return high-speed train tickets.</span></label>
+  <label><input type="checkbox"><span>Arrange Wuxi local MPV, waiting time and return to Wuxi Railway Station.</span></label>
+  <label><input type="checkbox"><span>Book Shanghai–Wuxi return high-speed train tickets.</span></label>
+  <label><input type="checkbox"><span>Check Shantang Street boat route, operating hours and ticket type.</span></label>
+  <label><input type="checkbox"><span>Book six Bund cruise tickets; verify pier, sailing time and concessions.</span></label>
+  <label><input type="checkbox"><span>Confirm vegetarian restaurants and backup food options.</span></label>
+  <label><input type="checkbox"><span>Prepare Chinese addresses and driver instructions.</span></label>
+  <label><input type="checkbox"><span>Prepare passports, snacks, warm clothes, medication and phone data.</span></label>
+</section>
+
+</main>
+
+<footer>
+  Shanghai Family Trip · 8–17 December 2026<br>
+  Planning estimates only. Reconfirm train times, opening hours,
+  ticket rules, restaurant ingredients and cruise schedules before travel.
+</footer>
+
+<script>
+function copyText(value) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(value)
+      .then(() => alert("Copied to clipboard"))
+      .catch(() => fallbackCopy(value));
+  } else {
+    fallbackCopy(value);
+  }
+}
+
+function fallbackCopy(value) {
+  const t = document.createElement("textarea");
+  t.value = value;
+  document.body.appendChild(t);
+  t.select();
+
+  try {
+    document.execCommand("copy");
+    alert("Copied to clipboard");
+  } catch (e) {
+    alert(value);
+  }
+
+  document.body.removeChild(t);
+}
+
+const boxes = [
+  ...document.querySelectorAll('#todo input[type="checkbox"]')
+];
+
+const storageKey = 'shanghai-family-trip-checklist-2026';
+
+try {
+  const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+  boxes.forEach((box, index) => {
+    box.checked = !!saved[index];
+  });
+} catch (e) {
+  // The planner still works if browser storage is unavailable.
+}
+
+function updateProgress() {
+  const completed = boxes.filter(box => box.checked).length;
+  const percentage = (completed / boxes.length) * 100;
+
+  document.getElementById('progressbar').style.width =
+    percentage + '%';
+
+  document.getElementById('progresslabel').textContent =
+    completed + ' of ' + boxes.length + ' completed';
+
+  try {
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify(boxes.map(box => box.checked))
+    );
+  } catch (e) {
+    // Checklist remains usable for the current session.
+  }
+}
+
+boxes.forEach(box => {
+  box.addEventListener('change', updateProgress);
+});
+
+updateProgress();
+</script>
+
+</body>
+</html>
